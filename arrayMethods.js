@@ -87,10 +87,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 
 // CODE HERE
 const myStrongest = monstersInYourPocket.filter(function(element){
-
       return element.CP > 200;
-    
-  
 })
  console.log(myStrongest)
 
@@ -111,7 +108,10 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
-
+const totals = orders.map(function(element){
+    return element.price + (element.price * element.tax);
+})
+console.log(totals);
 
 
 ////////// PROBLEM 6 //////////
@@ -131,3 +131,9 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
+const bobsTotal = purchases.filter(function(element){
+  return element.owner === "Bob"
+}).reduce(function(acc, element) {
+  return acc + element.price
+}, 0)
+console.log(bobsTotal);
