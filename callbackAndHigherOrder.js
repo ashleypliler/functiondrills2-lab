@@ -142,7 +142,7 @@ uniq(names, uniqArr => console.log(`The new names array with all the duplicate i
 */
 
 // CODE HERE 
-
+const each = (namearr, cb) => namearr.forEach((element, i) => cb(element, i))
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -152,12 +152,14 @@ uniq(names, uniqArr => console.log(`The new names array with all the duplicate i
 */
 
 // CODE HERE
+each(names, (item, i) => console.log(`The item at index ${i} is ${item}.`))
 
 
 ////////// PROBLEM 7 //////////
 
 /*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  Write a function called getUserById that takes in three parameters: 
+  an array of objects (users), an id and a callback, and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
@@ -185,15 +187,22 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
+const getUserById = (arr, id, cb) => {
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].id === id){
+      return cb(arr[i])
+    }
+  }
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of' +  users.email  + 'the name of'  +  users.name  +  'and the address of' +  users.address) 
+})
 
 ////////// CHALLENGE //////////
 
@@ -212,7 +221,7 @@ var users = [
 */
 
 // CODE HERE
-
+const addingFactory = (num) => (num2) => num + num2
 /*
   Now that you have addingFactory, you can create other
   functions from it. 
@@ -226,7 +235,7 @@ var users = [
 */
 
 // CODE HERE
-
+const addTen = addingFactory(10)
 /*
   Now the inner function is stored in the addTen variable! 
 
@@ -238,6 +247,9 @@ var users = [
 */
 
 // CODE HERE
+
+console.log(addTen(5));
+console.log(addTen(8));
 
 /*
   Let's make another function from the addingFactory. 
@@ -251,3 +263,5 @@ var users = [
 */
 
 // CODE HERE
+const addEight = addingFactory(8)
+console.log(addEight(88))
