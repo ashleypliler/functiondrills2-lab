@@ -18,9 +18,16 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 // CODE HERE
-const evenNumbers  = mixedNumbers.filter((mixedNumbers) => mixedNumbers % 2 === 0 );
+const evenNumbers  = mixedNumbers.filter((number) => number % 2 === 0 );
 console.log(evenNumbers)
 
+//const evenNumbers = mixedNumbers.filter((number) => {
+//   if(number % 2 === 0){
+ //     return true
+//   } else {
+ //     return false
+//}
+// })
 
 
 ////////// PROBLEM 2 //////////
@@ -40,7 +47,7 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-const postTaxPrices  = prices.map((prices) => prices * 1.07);
+const postTaxPrices  = prices.map((price) => price * 1.07);
 console.log(postTaxPrices);
 
 
@@ -86,9 +93,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-const myStrongest = monstersInYourPocket.filter(function(element){
-      return element.CP > 200;
-})
+const myStrongest = monstersInYourPocket.filter((monsters) => monsters.CP > 200)
  console.log(myStrongest)
 
 
@@ -108,8 +113,8 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
-const totals = orders.map(function(element){
-    return element.price + (element.price * element.tax);
+const totals = orders.map((order) => {
+    return order.price + (order.price * order.tax);
 })
 console.log(totals);
 
